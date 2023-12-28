@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Log In</title>
+        <script src="{{ url_for('static', filename = 'js/jquery.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'back.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}">
+        <script src="{{ url_for('static', filename = 'js/bootstrap.min.js') }}"></script>
+        <link href="{{ url_for('static', filename = 'font-awesome-4.7.0/css/font-awesome.min.css') }} " rel="stylesheet">
+</head>
+<body id="bg2">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6"></div>
+                <div class="col-sm-6">
+                    <h1 style="color:white">Добро Пожаловать</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-7"></div>
+                <div class="col-md-4" id="form">
+                    <div class="formpad">
+                        <form action="/login" method="POST">
+                            <div class="form-group">
+                                </br>
+                                <input type="email" class="form-control" placeholder="E-mail" name="email">
+                            </div></br>
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Пароль" name="password">
+                            </div></br>
+                            <div class="form-group">    
+                                <label><input type="checkbox" checked="checked" name="remember"> Запомнить</label></br></br>
+                                <button type="submit" class="btn btn-success btn-block">Войти</button>
+                            </div>
+                        </form>
+                    </div>    
+               </div>
+            </div>
+            <div class="row" id="second">
+                <div class="col-sm-6"></div>
+                <div class="col-sm-6">
+                    <h4 style="color:white">Еще не зарегистрированы? <a class="btn btn-primary btn-md"style="color:white" href="/registerationForm" >Нажмите</a> для регистрации</h4>
+                </div>    
+            </div>
+        </div>
+    </div>              
+</body>
+</html>

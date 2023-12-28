@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Remove</title>
+        <script src="{{ url_for('static', filename = 'js/jquery.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'back.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}">
+        <script src="{{ url_for('static', filename = 'js/bootstrap.min.js') }}"></script>
+        <link href="{{ url_for('static', filename = 'font-awesome-4.7.0/css/font-awesome.min.css') }} " rel="stylesheet">
+</head>
+<body >
+<div class="container">
+	<div class="row text-center">
+        <h1>Что необходимо удалить?</h1>
+        <h1>ЛЕКАРСТВА</h1>
+			<div class="col-sm-12">
+			<table class="table table-bordered">
+            {% for i in range(5) %}
+			<tbody>
+							<tr>
+                    {% for row in data %}
+						
+								<td>
+								<a href="/removeItem?productId={{row[0]}}">
+			{% if i == 4 %}
+				<button type="button" class="btn btn-danger">Удалить</button>
+			{% else %}
+				{{row[i]}}
+			{% endif %}
+								</td>
+							
+                    {% endfor %}
+					</tr>
+						</tbody>
+            {% endfor %}
+			</table>
+			</div>
+		    <div class="row" id="second">
+                <div class="col-sm-6"></div>
+                <div class="col-sm-12">
+                    <h4 style="color:white"><a class="btn btn-primary btn-md"style="color:white" href="/add" >Добавить препарат</a></h4>
+                </div>
+            </div>
+	
+</div>
+
+</body>
+</html>

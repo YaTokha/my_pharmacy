@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    <script src="{{ url_for('static', filename = 'js/jquery.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'back.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}">
+    <script src="{{ url_for('static', filename = 'js/bootstrap.min.js') }}"></script>
+    <link href="{{ url_for('static', filename = 'font-awesome-4.7.0/css/font-awesome.min.css') }} " rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="top_head">
+            <div class="container">
+                <div class="inner_top">
+                    <ul class="ul_one">
+                        <li>
+                            <a href="tele_pharma103@telepharma.ru">
+                                <i class="fa fa-envelope" aria-hidden="true"></i> tele_pharma103@telepharma.ru</a>
+                        </li>
+                        <li>
+                            <span style="color:white">
+                                <i class="fa fa-phone-square" aria-hidden="true"></i> 8 800 003 103 303</span>
+                        </li>
+                    </ul>
+                    <ul class="ul_two">
+                        <li>
+                            <a href="/cart" class="btn btn-primary">Корзина {{ noOfItems }}</a>
+
+                        </li>
+                        <li>
+                            {% if not loggedIn %}
+                            <a href="/loginForm">
+                                <i class="fa fa-sign-in" aria-hidden="true"></i> Вход</a>
+                            {% else %}
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" id="drop" data-toggle="dropdown">Здравствуйте,{{ firstName }}</button>
+                                <div class="dropdown-menu" area-labelledby="drop">
+                                    <a class="dropdown-item" href="/account/orders">
+                                        <span style="color:black">Ваши заказы
+                                            <span>
+                                    </a>
+                                    <a class="dropdown-item" href="/account/profile">
+                                        <span style="color:black">Профиль
+                                            <span>
+                                    </a>
+                                    <hr>
+                                    <a class="dropdown-item" href="/logout" class="btn btn-danger">
+                                        <span style="color:black">Выход
+                                            <span>
+                                    </a>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </li>
+                    </ul>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom_head">
+            <div class="container">
+                <div class="logo">
+                    <a href="/">Теле ФАРМА</a>
+                </div>
+                <div class="summa">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="/">
+                                <h4> Начальная страница</h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/prod">
+                                <h4>Товары</h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <h4>О нас</h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/contact">
+                                <h4>Контакты </h4>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+		<div class="container-fluid">
+			<div class="row text-center" id="about">
+                <h1>О препарате</h1></br>
+				<div class="col-sm-6" id="abprod" >
+					<img src={{url_for('static', filename='uploads/'+data[4]) }}  height="300px" id="productImage">
+					
+				</div>
+				<div class="col-sm-5" id="ab_prod">
+					<h2>{{data[1]}} </h2></br>
+                    <h3> Цена : {{data[2]}}</h3></br>
+                    <h3> <a class="btn btn-success" href="/addToCart?productId={{request.args.get('productId')}}">Добавить </a> этот препарат в корзину</h3> </br>
+                    <h4>Описание препарата </br>  </br>{{data[3]}}</h4>
+                </div>
+				
+			</div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Appointment</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/back.css') }}">
+<script src="{{ url_for('static', filename = 'js/jquery.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'back.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}">
+<script src="{{ url_for('static', filename = 'js/bootstrap.min.js') }}"></script>
+<link href="{{ url_for('static', filename = 'font-awesome-4.7.0/css/font-awesome.min.css') }} " rel="stylesheet">
+</head>
+<body id="bg9">
+	<section class="agile-header">
+		<div class="agile-heading">
+			<h1 style="color:black"><span style="color:deeppink">ЗАПОЛНИТЕ ФОРМУ</span></h1>
+		</div>
+		<div class="agile-form">
+			<form action="/appoint" method="POST">
+				<div class="agile-email">
+					<input type="text" name="name" placeholder="Ваше имя" required="">
+				</div>
+				<div class="agile-password">
+					<input type="text" name="phonenumber" placeholder="Ваш номер" required="">
+				</div>
+				<div class="agile-gender">
+					<p>пол</p>
+					<div class="agile-mgender">
+						<input type="radio" name="gender" value="male">
+						<span>мужской</span>
+					</div>
+					<div class="agile-fgender">
+						<input type="radio" name="gender" value="female">
+						<span>женский</span>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="agile-dob">
+					<p>Дата рождения</p>
+					<select class="agile-month">
+						<option value="" label="Месяц" selected="selected">Месяц</option>
+						<option>Январь</option>
+						<option>Февраль</option>
+						<option>Март</option>
+						<option>Апрель</option>
+						<option>Май</option>
+						<option>Июнь</option>
+						<option>Июль</option>
+						<option>Август</option>
+						<option>Сентябрь</option>
+						<option>Октябрь</option>
+						<option>Ноябрь</option>
+						<option>Декабрь</option>
+					</select>
+					<select class="agile-date">
+						<option value="" label="Дата" selected="selected">Дата</option>
+						<option>1</option>       
+						<option>2</option>       
+						<option>3</option>       
+						<option>4</option>       
+						<option>5</option>       
+						<option>6</option>       
+						<option>7</option>       
+						<option>8</option>       
+						<option>9</option>       
+						<option>10</option>       
+						<option>11</option>       
+						<option>12</option>       
+						<option>13</option>       
+						<option>14</option>       
+						<option>15</option>       
+						<option>16</option>       
+						<option>17</option>       
+						<option>18</option>       
+						<option>19</option>       
+						<option>20</option>       
+						<option>21</option>       
+						<option>22</option>       
+						<option>23</option>       
+						<option>24</option>       
+						<option>25</option>       
+						<option>26</option>       
+						<option>27</option>       
+						<option>28</option>       
+						<option>29</option>       
+						<option>30</option>       
+						<option>31</option>       
+					</select>
+					<select class="agile-year">
+						<option value="" label="Год" selected="selected">Год</option>
+						<option>1994</option>
+						<option>1995</option>
+						<option>1996</option>
+						<option>1997</option>
+						<option>1998</option>
+						<option>1999</option>
+						<option>2000</option>
+						<option>2001</option>
+						<option>2002</option>
+						<option>2003</option>
+						<option>2004</option>
+						<option>2005</option>
+						<option>2006</option>
+						<option>2007</option>
+						<option>2008</option>
+						<option>2009</option>
+						<option>2010</option>
+						<option>2011</option>       
+						<option>2012</option>       
+						<option>2013</option>       
+						<option>2014</option>       
+						<option>2015</option>       
+						<option>2016</option>       
+						<option>2017</option>       
+						<option>2018</option>     
+						<option>2019</option>
+						<option>2020</option>
+						<option>2021</option>
+						<option>2022</option>
+						<option>2023</option>
+					</select>
+					<div class="clear"></div>
+				</div></br>
+				<div class="agile-profile">
+					<p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Здесь</button> наши специалисты</p>
+						<div class="modal fade" id="myModal" role="dialog">
+							<div class="modal-dialog">
+								<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title">Информация о враче</h4>
+								</div>
+								<div class="modal-body">
+									<table class="table">
+										<thead class="thead-dark">
+											<tr>
+												<th scope="col">id</th>
+												<th scope="col">Имя врача</th>
+												<th scope="col">Специализация</th>
+												<th scope="col">Телефон для связи</th>
+											</tr>
+											<tbody>
+												<tr>
+													<th scope="row">1</th>
+													<td>Кирилл Александрович</td>
+													<td>Педиатрия</td>
+													<td>+8963139792178</td>
+												</tr>
+												<tr>
+														<th scope="row">2</th>
+														<td>Валентина Ивановна</td>
+														<td>Кардиология</td>
+														<td>+89503200987908</td>
+												</tr>
+												
+													<tr>
+															<th scope="row">3</th>
+															<td>Айдар Вячеславович</td>
+															<td>Терапевт</td>
+															<td>+89520472590980</td>
+														</tr>
+														
+												<tr>
+														<th scope="row">4</th>
+														<td>Фарид Ильгамович</td>
+														<td>Ментальная психология</td>
+														<td>756621581</td>
+													</tr>
+													
+												<tr>
+														<th scope="row">5</th>
+														<td>Вячеслав Геннадиевич</td>
+														<td>Гемотолог</td>
+														<td>975462158</td>
+													</tr>
+													
+												<tr>
+														<th scope="row">6</th>
+														<td>Александра Витальевна</td>
+														<td>Терапевт </td>
+														<td>884521623</td>
+													</tr>
+													
+												<tr>
+														<th scope="row">7</th>
+														<td>Виталий Салимович</td>
+														<td>Невролог</td>
+														<td>789546215</td>
+													</tr>
+											</tbody>
+										</thead>
+									</table>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+								</div>
+							</div>
+
+						</div>					
+				</div>
+				<div class="agile-profile">
+					<p>К врачу</p>
+					<input type="text" name="Doctor" placeholder="Введите имя врача">
+				</div>
+				<div class="agile-religion">
+					<p> Диагноз/Жалобы</p>
+					<input type="text" name="digo" placeholder="Что вас беспокоит?">
+				</div>
+				<div class="agile-tongue">
+					<p>Как давно</p>
+					<input type="text"name="long" placeholder="больше/меньше недели">
+				</div>
+				<div class="form-group">
+					<p>Когда вам удобно</p>
+					<input type="datetime-local" class="form-control" name="timing" >
+				</div>
+				<div class="agile-submit">
+					<input type="submit" value="Submit">
+				</div>
+			</form>
+		</div>
+		
+	</section>
+
+</body>
+</html>
